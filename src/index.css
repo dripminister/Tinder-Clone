@@ -1,13 +1,468 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.login-container,
+.signup-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+	max-width: 400px;
+	margin: 50px auto;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-container h2,
+.signup-container h2 {
+	margin-bottom: 20px;
+	color: #333;
+}
+
+.login-container form,
+.signup-container form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.login-container input,
+.signup-container input,
+.signup-container select {
+	width: 80%;
+	margin-bottom: 15px;
+	padding: 10px 5px;
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+.login-container button,
+.signup-container button {
+	width: 80%;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 10px;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	margin-bottom: 15px;
+}
+
+.login-container button:hover,
+.signup-container button:hover {
+	background-color: #0056b3;
+}
+
+.login-container a,
+.signup-container a {
+	text-decoration: none;
+	color: #007bff;
+	cursor: pointer;
+	transition: color 0.3s ease;
+}
+
+.login-container a:hover,
+.signup-container a:hover {
+	color: #0056b3;
+}
+
+.signup-container p {
+	color: red;
+	margin: 10px 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #d4d3d3;
+	align-items: center;
+}
+
+.header__logo {
+	height: 40px;
+}
+
+.header__icon {
+	padding: 20px;
+}
+
+.card {
+	background-size: cover;
+	background-position: center;
+	width: 300px;
+	height: 380px;
+	box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+	border-radius: 20px;
+	position: absolute;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.card__image{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.card h3 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 10px;
+	color: white;
+	background-color: gray;
+	padding: 3px 5px;
+	border-radius: 10px;
+	background-color: rgba(128, 128, 128, 0.7);
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tinderCards__container {
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+	position: relative;
+}
+
+.card .MuiIconButton-root {
+	background-color: white;
+	box-shadow: 0px 10px 53px 0px rgba(0, 0, 0, 0.3);
+	padding: 10px;
+	bottom: 0;
+	position: absolute;
+	margin: 10px 20px;
+}
+
+.card .MuiIconButton-root:hover {
+	background-color: rgb(218, 201, 201);
+}
+
+.card__buttonLeft {
+	color: #ec5e6f !important;
+	left: 60px;
+}
+
+.card__buttonInfo {
+	color: rgb(248, 248, 63) !important;
+	z-index: 10;
+}
+
+.card__buttonRight {
+	color: #76e2b3 !important;
+	right: 60px;
+}
+
+.chat {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+	border-bottom: 1px solid lightgray;
+	transition: background-color 300ms linear;
+}
+
+.chat:hover {
+	background-color: rgb(244, 222, 222);
+	cursor: pointer;
+}
+
+.chat__details {
+	flex: 1;
+	margin-left: 20px;
+}
+
+.chat__details > p {
+	color: gray;
+}
+
+.chat__timestamp {
+	color: lightgray;
+}
+
+.chatScreen__message {
+	display: flex;
+	align-items: center;
+	padding: 20px;
+}
+
+.chatScreen__text {
+	margin-left: 10px;
+	background-color: lightgray;
+	padding: 15px;
+	border-radius: 20px;
+}
+
+.profile-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-container input, .profile-container select {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.profile-container button {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.profile-container button:hover {
+    background-color: #0056b3;
+}
+
+.bio-textarea {
+    width: 100%;
+    height: 100px; 
+    padding: 10px; 
+    margin-top: 5px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; 
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    resize: vertical; 
+}
+
+.bio-textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.imageUpload, .userProfile {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+	align-items: center;
+	width: 100%;
+}
+
+.imageUpload__button {
+	display: flex;
+	align-items: center;
+	width: 200px;
+	justify-content: space-evenly;
+}
+
+.image-list {
+    padding: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.image-item {
+    margin: 8px;
+	height: 310px;
+	width: 260px;
+	background-color: lightgray;
+	border-radius: 5px;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.image-item img {
+	object-fit: cover;
+    width: 250px;
+    height: 300px;
+}
+
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: rgba(255, 0, 0, 1); 
+}
+
+.logout-button {
+    padding: 10px 15px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #d32f2f; 
+}
+
+
+.card__bio {
+    position: absolute;
+    top: 0;
+    left: 0;
+	right: 0;
+	bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); 
+    color: white;
+    padding: 10px;
+    z-index: 2;
+	box-sizing: border-box;
+}
+
+.match-modal {
+    display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+    z-index: 1000;
+    text-align: center;
+}
+
+.match-modal-content {
+	background-color: white;
+    margin-top: 20px;
+	padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.match-modal h2 {
+    color: #ff3b6c;
+    font-size: 1.5rem;
+}
+
+.match-profiles {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.match-profiles img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff3b6c;
+}
+
+.match-modal button {
+    background-color: #ff3b6c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.sendMessageForm {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 -4px 6px rgba(0,0,0,0.1);
+	box-sizing: border-box;
+}
+
+.sendMessageForm input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    margin-right: 10px;
+    outline: none;
+}
+
+.sendMessageForm button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #0b81ff;
+    color: white;
+    cursor: pointer;
+}
+
+
+.chatScreen__message {
+    display: flex;
+    align-items: center;
+	box-sizing: border-box;
+	padding: 10px 20px;
+}
+
+.message--currentUser {
+    justify-content: flex-end;
+}
+
+.message--otherUser {
+    justify-content: flex-start;
+}
+
+.message__text--currentUser,
+.message__text--otherUser {
+    padding: 10px;
+    border-radius: 20px;
+    max-width: 60%;
+    word-break: break-word;
+}
+
+.message__text--currentUser {
+    background-color: #DCF8C6; /* Hellgrün oder eine andere Farbe Ihrer Wahl */
+    color: black;
+    margin-left: 10px;
+    order: 1;
+}
+
+.message__text--otherUser {
+    background-color: #ECECEC; /* Hellgrau oder eine andere Farbe Ihrer Wahl */
+    color: black;
+    margin-right: 10px;
+    order: 2;
+}
+
+.chatScreen__message .MuiAvatar-root {
+    order: 2;
+    margin: 0 5px;
+}
+
+.message--currentUser .MuiAvatar-root {
+    order: 3;
+}
+
+.message--otherUser .MuiAvatar-root {
+    order: 1;
+}
+
+.chatScreen {
+	padding-bottom: 50px;
 }
