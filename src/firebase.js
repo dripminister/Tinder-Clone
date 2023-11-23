@@ -4,12 +4,7 @@ import { getFirestore } from "firebase/firestore"
 import { getStorage } from "firebase/storage"
 
 const firebaseConfig = {
-	apiKey: "AIzaSyCm9wHhwRYnVd_1bQ8wPU2orf5ZLS_V2EQ",
-	authDomain: "tinder-c205f.firebaseapp.com",
-	projectId: "tinder-c205f",
-	storageBucket: "tinder-c205f.appspot.com",
-	messagingSenderId: "292116175582",
-	appId: "1:292116175582:web:7292afda495ca523ee004f",
+//Firebase config
 }
 
 const app = initializeApp(firebaseConfig)
